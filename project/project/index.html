@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../galery.css">
+    <title>ZolPo</title>
+    <link rel="icon" type="image/x-icon" href="/images/istockphoto-670828726-612x612.jpg">
+    <!--Adding  a Favicon icon-->
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <!--main div-->
+            <input type="checkbox" name="" id="check"><!-- -->
+
+
+
+            <div class="logo-container">
+                <!--page title -->
+                <a class="home-link" href="../index.html">
+                    <i class="fas fa-solid fa-store yin"></i>
+                </a>
+                <a href="../index.html">
+                    <h3 class="logo">Hos<span>him</span> </h3>
+                </a>
+            </div>
+
+
+
+
+            <nav class="nav-btn">
+                <!--first div nav-->
+                <div class="nav-links">
+                    <!--second div nav-->
+
+                </div>
+                <!--end second div nav-->
+
+                <!-- Update the profile links with social media links and logos -->
+                <div class="log-sign">
+                    <a href="https://www.instagram.com/your_instagram_username/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <h3>|</h3>
+
+                    <a href="https://www.facebook.com/your_facebook_page/" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                    <h3>|</h3>
+
+                    <a href="https://www.tiktok.com/@your_tiktok_username" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+
+            </nav>
+            <!--end  first div nav-->
+
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!--end main div-->
+    </header>
+
+
+
+    <main class="main-gallery">
+
+
+        <section class="gallary-container">
+            <h1>כל המוצרים</h1>
+
+            <div class="photo-container">
+                <input type="text" id="searchInput" placeholder="הכנס מספר מוצר">
+            </div>
+
+            <div class="photo-gallery">
+
+                <div id="noProductMessage" style="display: none;">
+                    אין מוצר עם המספר שהזנת
+                </div>
+
+
+                <a class="pic indoor" href="https://s.click.aliexpress.com/e/_DCwi9XB" target="_blank">
+                    <div class="pic indoor" data-category="indoor">
+                        <img src="https://cdn.discordapp.com/attachments/335474034542247937/1195351247625138326/75096fcf-6836-4754-b07b-695538d98b24.jpeg?ex=65b3ac99&is=65a13799&hm=7f8930c2cd79f57985d85de13e4bb3d4fa3cbe4be41118567b433e9c94710277&"
+                            alt="" id="1">
+                    </div>
+                </a>
+
+
+                <a class="pic indoor" href="https://s.click.aliexpress.com/e/_DFuPZbr" target="_blank">
+                    <div class="pic indoor" data-category="indoor">
+                        <img src="https://cdn.discordapp.com/attachments/335474034542247937/1195346833434738698/image.png?ex=65b3a87d&is=65a1337d&hm=61f8f4e1fe3e97b6c98cc65abacb85e34147d0b461a354e56c9739107e73518c&"
+                            alt="" id="2">
+                    </div>
+                </a>
+
+                <a class="pic indoor" href="https://s.click.aliexpress.com/e/_DBX7eQD" target="_blank">
+                    <div class="pic indoor" data-category="indoor">
+                        <img src="https://cdn.discordapp.com/attachments/335474034542247937/1195348748247777340/224e083f-adab-4129-acec-69cf4d80b28a.jpeg?ex=65b3aa46&is=65a13546&hm=10f78e1fb8b4a39d6001db3bc20eabc70303c6707507337f1e0efad94917c43a&"
+                            alt="" id="3">
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const photos = document.querySelectorAll(".pic");
+        const noProductMessage = document.getElementById("noProductMessage");
+
+        searchInput.addEventListener("input", function () {
+            const searchText = searchInput.value.trim();
+            let found = false;
+
+            photos.forEach(function (photo) {
+                const imgId = photo.querySelector('img').id;
+                const img = document.getElementById(imgId);
+
+                if (imgId.includes(searchText)) {
+                    photo.style.display = "block";
+                    img.style.display = "block";
+                    found = true;
+                } else {
+                    photo.style.display = "none";
+                    img.style.display = "none";
+                }
+            });
+
+            if (!found) {
+                noProductMessage.style.display = "block";
+            } else {
+                noProductMessage.style.display = "none";
+            }
+        });
+    });
+
+</script>
